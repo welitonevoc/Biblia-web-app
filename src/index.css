@@ -1,0 +1,429 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Literata:ital,opsz,wght@0,7..72,200..900;1,7..72,200..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Crimson+Pro:ital,wght@0,200..900;1,200..900&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+@theme {
+  --font-bible: "Literata", "Georgia", serif;
+  --font-ui: "Inter", system-ui, sans-serif;
+  --font-display: "Playfair Display", "Georgia", serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+:root {
+  /* Premium Dark Theme (Default) */
+  --bg: #050505;
+  --bg-surface: #0F0F0F;
+  --bg-card: #161616;
+  --bg-hover: #1F1F1F;
+  --bg-input: #0A0A0A;
+  --text: #F5F5F5;
+  --text-muted: #A0A0A0;
+  --text-dim: #505050;
+  --accent: #D4AF37; /* Metallic Gold */
+  --accent-dim: #8B732A;
+  --accent-bg: rgba(212, 175, 55, 0.08);
+  --bible-text: #E0E0E0;
+  --verse-num: #8B732A;
+  --jesus-words: #E57373;
+  --border: rgba(255, 255, 255, 0.06);
+  --border-focus: rgba(212, 175, 55, 0.3);
+  --hl-yellow: rgba(212, 175, 55, 0.15);
+  --hl-blue: rgba(64, 156, 255, 0.15);
+  --hl-green: rgba(76, 175, 80, 0.15);
+  --hl-red: rgba(244, 67, 54, 0.15);
+  --hl-orange: rgba(255, 152, 0, 0.15);
+  --sidebar-bg: #0A0A0A;
+  --sidebar-width: 320px;
+  --radius-sharp: 4px;
+  --radius-soft: 24px;
+  --radius-pill: 999px;
+  --reader-size: 20px;
+  --reader-lh: 1.8;
+  --reader-margin: 32px;
+  --glass: rgba(15, 15, 15, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --shadow-color: rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="light"] {
+  --bg: #FDFDFD;
+  --bg-surface: #F5F5F5;
+  --bg-card: #FFFFFF;
+  --bg-hover: #F0F0F0;
+  --bg-input: #FFFFFF;
+  --text: #1A1A1A;
+  --text-muted: #666666;
+  --text-dim: #999999;
+  --accent: #8B732A;
+  --accent-dim: #6B5821;
+  --accent-bg: rgba(139, 115, 42, 0.06);
+  --bible-text: #1A1A1A;
+  --verse-num: #6B5821;
+  --jesus-words: #C62828;
+  --border: rgba(0, 0, 0, 0.08);
+  --sidebar-bg: #F5F5F5;
+  --shadow-color: rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="amoled"] {
+  --bg: #000000;
+  --bg-surface: #050505;
+  --bg-card: #0A0A0A;
+  --bg-hover: #121212;
+  --bg-input: #000000;
+  --text: #FFFFFF;
+  --text-muted: #999999;
+  --text-dim: #444444;
+  --accent: #D4AF37;
+  --sidebar-bg: #000000;
+  --shadow-color: rgba(0, 0, 0, 0.8);
+}
+
+[data-theme="sepia"] {
+  --bg: #F4ECD8;
+  --bg-surface: #FAF3E0;
+  --bg-card: #FFF9E6;
+  --bg-hover: #E8DCC0;
+  --text: #433422;
+  --text-muted: #7A6348;
+  --accent: #8B732A;
+  --sidebar-bg: #E8DCC0;
+  --shadow-color: rgba(67, 52, 34, 0.1);
+}
+
+[data-theme="minimalist"] {
+  --bg: #FFFFFF;
+  --bg-surface: #FFFFFF;
+  --bg-card: #FFFFFF;
+  --bg-hover: #F8F8F8;
+  --bg-input: #FFFFFF;
+  --text: #000000;
+  --text-muted: #777777;
+  --text-dim: #BBBBBB;
+  --accent: #000000;
+  --accent-dim: #222222;
+  --accent-bg: rgba(0, 0, 0, 0.03);
+  --bible-text: #000000;
+  --verse-num: #CCCCCC;
+  --jesus-words: #000000;
+  --border: rgba(0, 0, 0, 0.04);
+  --sidebar-bg: #FFFFFF;
+  --shadow-color: rgba(0, 0, 0, 0.02);
+}
+
+[data-theme="velvet"] {
+  --bg: #1A0B2E;
+  --bg-surface: #24113D;
+  --bg-card: #2D164D;
+  --bg-hover: #371B5C;
+  --bg-input: #150925;
+  --text: #F5F0FF;
+  --text-muted: #B3A1D1;
+  --text-dim: #7A6B9E;
+  --accent: #D4AF37;
+  --accent-dim: #8B732A;
+  --accent-bg: rgba(212, 175, 55, 0.1);
+  --bible-text: #F5F0FF;
+  --verse-num: #D4AF37;
+  --jesus-words: #FF80AB;
+  --border: rgba(212, 175, 55, 0.1);
+  --sidebar-bg: #150925;
+  --shadow-color: rgba(0, 0, 0, 0.6);
+}
+
+[data-theme="ocean"] {
+  --bg: #050B1A;
+  --bg-surface: #0A1429;
+  --bg-card: #0F1D38;
+  --bg-hover: #142647;
+  --bg-input: #030712;
+  --text: #E0F2FE;
+  --text-muted: #7DD3FC;
+  --text-dim: #38BDF8;
+  --accent: #22D3EE;
+  --accent-dim: #0891B2;
+  --accent-bg: rgba(34, 211, 238, 0.1);
+  --bible-text: #E0F2FE;
+  --verse-num: #22D3EE;
+  --jesus-words: #F472B6;
+  --border: rgba(34, 211, 238, 0.1);
+  --sidebar-bg: #030712;
+  --shadow-color: rgba(0, 0, 0, 0.7);
+}
+
+[data-theme="forest"] {
+  --bg: #0B1A0F;
+  --bg-surface: #112918;
+  --bg-card: #173821;
+  --bg-hover: #1D472A;
+  --bg-input: #07120A;
+  --text: #ECFDF5;
+  --text-muted: #6EE7B7;
+  --text-dim: #34D399;
+  --accent: #FDE68A;
+  --accent-dim: #FBBF24;
+  --accent-bg: rgba(253, 230, 138, 0.1);
+  --bible-text: #ECFDF5;
+  --verse-num: #FDE68A;
+  --jesus-words: #F87171;
+  --border: rgba(253, 230, 138, 0.1);
+  --sidebar-bg: #07120A;
+  --shadow-color: rgba(0, 0, 0, 0.7);
+}
+
+[data-theme="royal"] {
+  --bg: #1A0505;
+  --bg-surface: #260A0A;
+  --bg-card: #331010;
+  --bg-hover: #401515;
+  --bg-input: #120303;
+  --text: #FDF2F2;
+  --text-muted: #E5B3B3;
+  --text-dim: #CC8080;
+  --accent: #D4AF37;
+  --accent-dim: #8B732A;
+  --accent-bg: rgba(212, 175, 55, 0.1);
+  --bible-text: #FDF2F2;
+  --verse-num: #D4AF37;
+  --jesus-words: #FFD700;
+  --border: rgba(212, 175, 55, 0.1);
+  --sidebar-bg: #120303;
+  --shadow-color: rgba(0, 0, 0, 0.8);
+}
+
+[data-theme="midnight"] {
+  --bg: #050A1A;
+  --bg-surface: #0A1429;
+  --bg-card: #0F1D38;
+  --bg-hover: #142647;
+  --bg-input: #030712;
+  --text: #E2E8F0;
+  --text-muted: #94A3B8;
+  --text-dim: #64748B;
+  --accent: #F1F5F9;
+  --accent-dim: #CBD5E1;
+  --accent-bg: rgba(241, 245, 249, 0.05);
+  --bible-text: #F8FAFC;
+  --verse-num: #94A3B8;
+  --jesus-words: #F1F5F9;
+  --border: rgba(241, 245, 249, 0.05);
+  --sidebar-bg: #030712;
+  --shadow-color: rgba(0, 0, 0, 0.8);
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-ui);
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(212, 175, 55, 0.2);
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Premium Utilities */
+.glass {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.glass-gold {
+  background: rgba(212, 175, 55, 0.05);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+.text-gradient-gold {
+  background: linear-gradient(to bottom right, #D4AF37, #8B732A);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.shadow-premium {
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.shadow-gold {
+  box-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
+}
+
+/* Bible Reader Specifics */
+.bible-reader {
+  font-family: var(--font-bible);
+  font-size: var(--reader-size);
+  line-height: var(--reader-lh);
+  padding: 0 var(--reader-margin);
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+.verse-text {
+  transition: all 0.3s ease;
+  position: relative;
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+.verse-text:hover {
+  background: rgba(212, 175, 55, 0.05);
+}
+
+.verse-num {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 800;
+  color: var(--accent);
+  opacity: 0.4;
+  margin-right: 0.6rem;
+  user-select: none;
+}
+
+.words-of-jesus {
+  color: var(--jesus-words);
+}
+
+/* Layout classes */
+.app-sidebar {
+  width: var(--sidebar-width);
+  background-color: var(--sidebar-bg);
+  border-right: 1px solid var(--border);
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+}
+
+.main-content {
+  margin-left: var(--sidebar-width);
+  min-height: 100vh;
+  background-color: var(--bg);
+}
+
+@media (max-width: 768px) {
+  .app-sidebar {
+    display: none;
+  }
+  .main-content {
+    margin-left: 0;
+    padding-bottom: 80px;
+  }
+}
+
+.nav-ribbon {
+  position: fixed;
+  bottom: 16px;
+  left: 16px;
+  right: 16px;
+  height: 72px;
+  background: rgba(15, 15, 15, 0.8);
+  backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 32px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 50;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+}
+
+@media (min-width: 769px) {
+  .nav-ribbon {
+    display: none;
+  }
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Rich Text Editor Styles */
+.editor-container {
+  background-color: var(--bg-surface);
+  border-radius: var(--radius-soft);
+  border: 1px solid var(--border);
+  padding: 1.5rem;
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 1.25rem;
+}
+
+.tb-btn {
+  padding: 0.6rem;
+  border-radius: 12px;
+  background-color: var(--bg-card);
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tb-btn:hover {
+  background-color: var(--bg-hover);
+  color: var(--text);
+  transform: translateY(-1px);
+}
+
+.tb-btn.active {
+  background-color: var(--accent-bg);
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.tag-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-right: 6px;
+  margin-bottom: 6px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+}
